@@ -31,8 +31,18 @@ def main():
 	
 	print 'walls :' 
 	print walls
-	print 'roads :' 
+	print 'roads :'
 	print roads
+	print '###################'
+	print '#mode(on keyboard):'
+	print '#0) passive'
+	print '#1) create road'
+	print '#2) create wall'
+	print '#3) delete'
+	print '#4) delete 9 cells'
+	print '###################'
+	print '#Press S to save map'
+	print '###################'
 	
 	zoom = 10
 	pos=0,0
@@ -191,7 +201,7 @@ def main():
 					pickle.dump(roads_level_, file)
 					pickle.dump(walls_level_, file)
 					file.close
-					print 'save level competed'
+					print 'save level competed'					
 		#render
 			screen.fill((255, 255, 255))
 			
