@@ -70,7 +70,8 @@ def main():
 							dubl=True
 						j+=1
 					if not dubl:
-						roads.append([x,y])		
+						roads.append([x,y])
+						
 				if mode==2:
 					x=pos[0]/zoom
 					y=pos[1]/zoom
@@ -87,6 +88,7 @@ def main():
 						if walls[j]==[x,y]:
 							dubl=True
 						j+=1
+						
 					if not dubl:
 						walls.append([x,y])	
 						
@@ -105,6 +107,7 @@ def main():
 						if walls[i]==[x,y]:
 							walls.pop(i)
 						i+=1
+						
 				if mode ==4:
 					x=pos[0]/zoom
 					y=pos[1]/zoom
@@ -172,7 +175,8 @@ def main():
 			if event.type == 5:
 				if event.button == 4:#+
 					if zoom<=100:
-						zoom*=2					
+						zoom*=2	
+						
 				if event.button == 5:#-
 					if zoom>=5:
 						zoom/=2
@@ -180,20 +184,26 @@ def main():
 			if event.type == pygame.KEYDOWN:	
 				if event.key == 48:#0_passive
 					mode=0
+					
 				if event.key == 49:#1_add_road
-					mode=1					
+					mode=1	
+					
 				if event.key == 50:#2_add_wall
 					mode=2
+					
 				if event.key == 51:#3_del
 					mode=3
+					
 				if event.key == 52:#4_hard_del
 					mode=4
+					
 				if event.key == 115:#s_save
 					file=open('base_new.txt','w')
 					pickle.dump(roads, file)
 					pickle.dump(walls, file)
 					file.close
 					print 'save completed'
+					
 				if event.key == 99:#c_create - nomer lvla vvodim ru4kami tut=\
 					file=open('main_base.txt','w')
 					roads_level_=roads
@@ -214,10 +224,13 @@ def main():
 			while i<len(roads):
 				pygame.draw.rect(screen,(127,255,0),(roads[i][0]*zoom,roads[i][1]*zoom,zoom,zoom))
 				i+=1
+				
 			if mode==1 or mode==2 or mode==3:#little cell 
 				pygame.draw.rect(screen,(100,100,100),(pos[0],pos[1],zoom,zoom))
+				
 			if mode==4:#big cell
 				pygame.draw.rect(screen,(100,100,100),(pos[0]-zoom,pos[1]-zoom,zoom*3,zoom*3))
+				
 			pygame.display.flip()
 		time.sleep(0.01)
 main()
