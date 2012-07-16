@@ -191,8 +191,7 @@ def main():
 					pickle.dump(roads_level_, file)
 					pickle.dump(walls_level_, file)
 					file.close
-					print 'save level competed'					
-					pickle.dump
+					print 'save level competed'
 		#render
 			screen.fill((255, 255, 255))
 			
